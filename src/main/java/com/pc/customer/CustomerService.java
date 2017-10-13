@@ -1,4 +1,4 @@
-package com.pc.plans;
+package com.pc.customer;
 
 import java.util.List;
 
@@ -11,21 +11,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/plans")
-public class CorsPlans {
+@RequestMapping("/customers")
+public class CustomerService {
+
 	@Autowired
-	private MockPlan mock;
+	private CustomerMock mock;
 
 	@GetMapping
-	public List<Plan> getPlans() {
-		return mock.getPlans();
+	public List<Customer> getList() {
+		return mock.getList();
 	}
 
-	@GetMapping("/{accountId}")
-	public Plan read(@PathVariable("accountId") int accountId) throws Exception {
-		List<Plan> list = mock.getPlans();
-		Plan Plan = list.stream().filter(b -> b.getAccountId() == accountId).findFirst().get();
-		return Plan;
+	@GetMapping("/{id}")
+	public Customer get(@PathVariable("id") Integer id) throws Exception {
+		return this.getList().stream().filter(customer -> customer.getId().equals(id)).findFirst().get();
 	}
 
 }

@@ -4,19 +4,18 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.pc</groupId>
-  <artifactId>microservices</artifactId>
+  <artifactId>pc-demo-microservices</artifactId>
   <version>1.0</version>
 
-  <name>microservices</name>
+  <name>pc-demo-microservices</name>
   <description>Spring Boot example running a Camel route defined in XML</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.4.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath /> 
 	</parent>
-
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -61,7 +60,7 @@
   </dependencies>
 
   <build>
-    <finalName>microservices</finalName>  
+    <finalName>pc-demo-microservices</finalName>  
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>

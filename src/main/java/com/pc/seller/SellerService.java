@@ -1,4 +1,4 @@
-package com.pc.currentusage;
+package com.pc.seller;
 
 import java.util.List;
 
@@ -11,21 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping
-public class CorsUsage {
-	@Autowired
-	private MockUsage mock;
+@RequestMapping("/sellers")
+public class SellerService {
 
-	@GetMapping("/usage")
-	public List<CurrentUsage> getList() {
+	@Autowired
+	private SellerMock mock;
+
+	@GetMapping
+	public List<Seller> getList() {
 		return mock.getList();
 	}
 
-	@GetMapping("/usage/{accountId}")
-	public CurrentUsage read(@PathVariable("accountId") Integer accountId) throws Exception {
-		List<CurrentUsage> list = mock.getList();
-		CurrentUsage usage = list.stream().filter(b -> b.getAccountId().equals(accountId)).findFirst().get();
-		return usage;
+	@GetMapping("/{id}")
+	public Seller get(@PathVariable("id") Integer id) {
+		return this.getList().stream().filter(s -> s.getId().equals(id)).findFirst().get();
 	}
-
 }
